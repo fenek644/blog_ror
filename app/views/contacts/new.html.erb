@@ -1,5 +1,14 @@
 <h2> New Contact</h2>
 
+<% if @contact && @contact.errors.any? %>
+<p id="err">
+  <% @contact.errors.full_messages.each do |msg| %>
+  <span><%= msg %></span><br />
+  <% end %>
+
+</p>
+<% end %>
+
 <%= form_for :contact, url: contacts_path do |f| %>
   <p>
     <%= f.label :email %> <br/>
