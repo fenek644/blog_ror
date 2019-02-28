@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get 'home/index'
   get 'home/contact'
+  get 'about/show'
+  get 'about' => 'about#show'
+
+  get 'term/show'
+  get 'term' => 'term#show'
 
   get '/' => 'home#index'
   # get 'contacts' => 'contacts#new'
