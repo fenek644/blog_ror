@@ -10,6 +10,20 @@ class ArticlesController < ApplicationController
     @row = Article.find(post_id)
   end
 
+  def edit
+    post_id = params[:id]
+
+    @row = Article.find(post_id)
+
+  end
+
+  def update
+     post_id = articles_id["id"]
+    @item = Article.find(post_id)
+    @item.update(articles_params)
+  end
+
+
   def new
 
   end
