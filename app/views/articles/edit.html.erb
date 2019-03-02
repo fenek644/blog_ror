@@ -1,3 +1,14 @@
+
+<% if @row && @row.errors.any? %>
+  <p id="err">
+    <% @row.errors.full_messages.each do |msg| %>
+      <span><%= msg %></span><br />
+    <% end %>
+
+  </p>
+<% end %>
+
+
 <%= form_for @row, url: article_path(:id) do |f| %>
 
   <p>

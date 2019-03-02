@@ -11,7 +11,17 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+
     post_id = params[:id]
+    # puts "-==============================================================================="
+    # p params
+    # puts "@post id = #{@post_id}"
+    # if @post_id == "id"
+    #   @post_id = articles_id['id']
+    #   params[:id] = articles_id['id']
+    #
+    # end
+    # p params
 
     @row = Article.find(post_id)
 
@@ -19,8 +29,15 @@ class ArticlesController < ApplicationController
 
   def update
      post_id = articles_id["id"]
-    @item = Article.find(post_id)
-    @item.update(articles_params)
+    @row = Article.find(post_id)
+    if @row.update(articles_params)
+      redirect_to @row
+    else
+      # puts "================================================================================="
+      # puts "@post id = #{post_id}"
+      # p params
+      render action: 'edit'
+    end
   end
 
 
@@ -30,12 +47,17 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(articles_params)
-    if @article.valid?
-      @article.save
+    if @article.save
       redirect_to @article
     else
       render action: 'new'
     end
+  end
+
+  def destroy
+    post_id = params[:id]
+    @row = Article.find(post_id)
+    @row.destroy
   end
 
   private
