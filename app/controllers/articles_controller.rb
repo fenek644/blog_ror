@@ -58,6 +58,7 @@ class ArticlesController < ApplicationController
     post_id = params[:id]
     @row = Article.find(post_id)
     @row.destroy
+    redirect_to articles_path
   end
 
   private
