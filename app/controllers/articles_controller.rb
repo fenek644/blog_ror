@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
     post_id = params[:id]
 
     @row = Article.find(post_id)
+    @comment = @row.comments.new
+    @comments = @row.comments.order 'created_at desc'
   end
 
   def edit

@@ -13,3 +13,6 @@ class CommentsController < ApplicationController
   end
 
 end
+
+# article_comments POST   /articles/:article_id/comments(.:format)    comments#create
+
