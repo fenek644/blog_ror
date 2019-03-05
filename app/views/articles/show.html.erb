@@ -2,4 +2,25 @@
 <p><%= @row.text %></p>
 <p><%= @row.created_at %></p>
 
+<h5>Add comment</h5>
+
+<%= form_for([@row, @row.comments.build]) do |f| %>
+  <p>
+    <%= f.label :author %> <br/>
+    <%= f.text_field :author %>
+  </p>
+
+  <p>
+    <%= f.label :body %> <br/>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <p> Hiii</p>
+
+<% end %>
+
+
 <%= link_to "Show all articles", articles_path %>

@@ -31,3 +31,5 @@
 /config/master.key
 .idea/*
 db/development.sqlite3
+
+.rake_tasks~
