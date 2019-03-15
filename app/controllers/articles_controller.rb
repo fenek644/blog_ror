@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :only => [:new, :create]
 
   def index
     @articles = Article.order 'created_at desc'
@@ -17,16 +17,6 @@ class ArticlesController < ApplicationController
   def edit
 
     post_id = params[:id]
-    # puts "-==============================================================================="
-    # p params
-    # puts "@post id = #{@post_id}"
-    # if @post_id == "id"
-    #   @post_id = articles_id['id']
-    #   params[:id] = articles_id['id']
-    #
-    # end
-    # p params
-
     @row = Article.find(post_id)
 
   end
@@ -37,9 +27,6 @@ class ArticlesController < ApplicationController
     if @row.update(articles_params)
       redirect_to @row
     else
-      # puts "================================================================================="
-      # puts "@post id = #{post_id}"
-      # p params
       render action: 'edit'
     end
   end
