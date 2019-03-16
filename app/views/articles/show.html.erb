@@ -4,21 +4,27 @@
 
 <h5>Add comment</h5>
 
-<%= form_for([@row, @comment]) do |f| %>
-  <p>
-    <%= f.label :author %> <br/>
-    <%= f.text_field :author %>
-  </p>
 
-  <p>
-    <%= f.label :body %> <br/>
-    <%= f.text_area :body %>
-  </p>
+<% if user_signed_in? %>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= form_for([@row, @comment]) do |f| %>
 
+    <p>
+      <%= f.label :author %> <br/>
+      <%=   current_user.username  %>
+      <%= f.hidden_field :author, value: current_user.username %>
+    </p>
+
+    <p>
+      <%= f.label :body %> <br/>
+      <%= f.text_area :body %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+  <% end %>
 <% end %>
 
 
