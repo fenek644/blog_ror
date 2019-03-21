@@ -10,6 +10,14 @@
 <% end %>
 
 <%= form_for :article, url: articles_path do |f| %>
+
+  <p>
+    <%= f.label :username %> <br/>
+    <%=   current_user.username  %>
+    <%= f.hidden_field :username, value: current_user.username %>
+  </p>
+
+
   <p>
     <%= f.label :title %> <br/>
     <%= f.text_field :title %>
