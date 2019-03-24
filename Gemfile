@@ -68,3 +68,7 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'capybara'
 end
+
+group :development, :test do
+  gem "factory_bot_rails"
+end
