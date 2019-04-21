@@ -26,4 +26,11 @@ describe  Article do
     end
 
   end
+
+  describe "validate_length_of_article_part" do
+    it { should validate_length_of(:title).is_at_most(140)}
+    it { should validate_length_of(:text).is_at_most(4000)}
+    end
+
+
 end
