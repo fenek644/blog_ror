@@ -33,3 +33,6 @@ en:
   hello: "Hello world"
   contacts:
     contact_us: "Contact Us!"
+    thanks: 'Thanks'
+  article:
+    new: 'New Article'
