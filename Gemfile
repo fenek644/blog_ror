@@ -70,6 +70,6 @@ group :development, :test do
   gem "factory_bot_rails"
 end
 
-group :test do
+group :development, :test do
   gem 'database_cleaner'
 end
